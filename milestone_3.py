@@ -15,3 +15,8 @@ while True:
     except KeyboardInterrupt:
         print('Oops! You typed CTRL + C. Please, enter a single alphabetical character.')
 
+if guess in word:
+    print(f'Good guess! {guess} is in the word "{word}"')
+else:
+    print(f'Sorry, {guess} is not in the word "{word}". Try again.')
+    
