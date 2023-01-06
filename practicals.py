@@ -1,24 +1,3 @@
-class Shape:
-    def __init__(self, num_sides, tesselates = 0):
-        self.num_sides = num_sides
-        self.tesselates = tesselates
-        self.valid_num = self.sides_check()
-
-    def sides_check(self):
-        if self.num_sides == 0:
-            raise AttributeError ('Number of sides cannot be zero.')
-        else:
-            return True
-
-    def __str__(self):
-        return f'{self.num_sides}, {self.tesselates}'
-
-shape_1 = Shape(0, 2)
-
-print(shape_1)
-
-
-
 from datetime import datetime, date
 
 class Cyclinder:
@@ -85,3 +64,81 @@ print(person_new.friends)
 person_1.add_friend(person_new)
 print(person_1.friends)
 print(person_new.friends)
+
+
+class Shape:
+    def __init__(self, num_sides, tesselates = None):
+        self.num_sides = num_sides
+        self.tesselates = tesselates
+        self.valid_num = self.sides_check()
+
+    def sides_check(self):
+        if self.num_sides == 0:
+            raise AttributeError ('Number of sides cannot be zero.')
+        else:
+            return True
+
+    def get_info(self):
+        raise NotImplementedError ("Please implement this method")
+
+    def __str__(self):
+        return self.get_info()
+
+    def __add__(self, other):
+        new_shape = self.num_sides + other.num_sides
+        return Shape(new_shape)
+
+    def __repr__(self):
+        return f'sides = {self.num_sides}, tesselate = {self.tesselates}'
+
+class Circle(Shape):
+    def __init__(self):
+        super().__init__(None, False)
+
+    def get_info(self):
+        return f'Circle | Total Sides: Circle has no sides, Tesselates = {bool(self.tesselates)}'
+
+class Triangle(Shape):
+    def __init__(self):
+        super().__init__(3, True)
+    def get_info(self):
+        return f'Triange | Total Sides: {self.num_sides}, Tesselates = {bool(self.tesselates)}'
+
+class Square(Shape):
+    def __init__(self):
+        super().__init__(4, True)
+    def get_info(self):
+        return f'Square | Total Sides: {self.num_sides}, Tesselates = {bool(self.tesselates)}'
+
+class Pentagon(Shape):
+    def __init__(self):
+        super().__init__(5, False)
+    def get_info(self):
+        return f'Pentagon | Total Sides: {self.num_sides}, Tesselates = {bool(self.tesselates)}'
+
+class Hexagon(Shape):
+    def __init__(self):
+        super().__init__(6, True)
+    def get_info(self):
+        return f'Hexagon | Total Sides: {self.num_sides}, Tesselates = {bool(self.tesselates)}'
+
+shp_1 = Shape(10)
+cir_1 = Circle()
+tri_1 = Triangle()
+sqr_1 = Square()
+pen_1 = Pentagon()
+hex_1 = Hexagon()
+
+print(cir_1.get_info())
+print(tri_1.get_info())
+print(sqr_1.get_info())
+print(pen_1.get_info())
+print(hex_1.get_info())
+print(cir_1)
+
+poly_1 = tri_1 + sqr_1
+poly_2 = tri_1 + hex_1
+print(repr(poly_1))
+print(type(poly_1))
+print(repr(poly_2))
+print(type(poly_2))
