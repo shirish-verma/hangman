@@ -20,6 +20,10 @@ Created an infinite while loop to get the first guess from the user until the us
 
 Defined the class and initiated the attributes. Used self to instantiate the attributes and assign the arguments. Created methods, i.e. functions, by moving the ask input and check guess functions within the class.
 
+Noted that the check to add the guess to the list_of_guesses was asked to be added twice to the class. Once in the ask_for_input method and then again in the check_guess method.
+
 # Created a new file milestone_5.py and imported milestone 4 to use the class.
+Used the command "import milestone_4 as hm_cls" rather than copy pasting the entire code from milestone_4. Realised that the whole file ran once when it was called to run the hangman class. So went back and deleted any print/calls from milestone_4
+
 # Created a new function that uses the hangman object and game logic to complete the game.
-# Tons of room for improvement in user communication to let them know where they stand at different stages of the game.
+Whoa! The game is working. The last bit came about quickly and concisely. The num_letter variable is the key to the game logic. Tons of room for improvement in user communication to let them know where they stand at different stages of the game.
