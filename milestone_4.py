@@ -13,9 +13,9 @@ class Hangman:
         guess = guess.lower()
         if guess in self.word:
             print(f'Good guess! {guess} is in the word.')
-            for char in self.word:
-                if char == guess:
-                    self.word_guessed[[*self.word].index(char)] = guess
+            for char in enumerate(self.word):
+                if char[1] == guess:
+                    self.word_guessed[char[0]] = guess
             self.num_letters -= 1
             return True
         else:
