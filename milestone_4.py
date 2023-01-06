@@ -13,6 +13,10 @@ class Hangman:
         guess = guess.lower()
         if guess in self.word:
             print(f'Good guess! {guess} is in the word.')
+            for char in self.word:
+                if char == guess:
+                    self.word_guessed[[*self.word].index(char)] = guess
+            self.num_letters -= 1
             return True
         else:
             print(f'Sorry, {guess} is not in the word. Try again.')
@@ -34,5 +38,8 @@ word_list_1 = ['mango', 'watermelon', 'orange', 'banana', 'grapes']
 hm_1 = Hangman(word_list_1)
 print(hm_1.word)
 print(hm_1.num_letters, end="\n\n")
+
 hm_1.ask_for_input()
 print(hm_1.list_of_guesses)
+print(hm_1.word_guessed)
+print(hm_1.num_letters)
