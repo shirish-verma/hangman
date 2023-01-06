@@ -27,7 +27,7 @@ class Hangman:
                 print(f'You already tried that letter!')
             else:
                 if self.check_guess(guess) == True:
-                    self.list_of_guesses += guess
+                    self.list_of_guesses.append(guess)
                     return True
                 else:
                     return False
