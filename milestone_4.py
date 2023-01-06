@@ -26,12 +26,9 @@ class Hangman:
             elif guess in self.list_of_guesses:
                 print(f'You already tried that letter!')
             else:
-                if self.check_guess(guess) == True:
-                    self.list_of_guesses.append(guess)
-                    return True
-                else:
-                    return False
-    
+                self.list_of_guesses.append(guess)
+                return self.check_guess(guess)
+
 word_list_1 = ['mango', 'watermelon', 'orange', 'banana', 'grapes']
 
 hm_1 = Hangman(word_list_1)
